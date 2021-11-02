@@ -11,7 +11,7 @@ import SwiftUI
 struct LiquidSwipeOnBoardingApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            IntroView()
         }
     }
 }
