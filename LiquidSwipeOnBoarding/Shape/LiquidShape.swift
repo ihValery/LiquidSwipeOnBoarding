@@ -9,10 +9,16 @@ import SwiftUI
 
 struct LiquidShape: Shape {
     var offset: CGSize
+    var curvePoint: CGFloat
     
-    var animatableData: CGSize {
-        get { offset }
-        set { offset = newValue }
+    //Разница видна когда отпускаем стрелку ))) animatableData НУЖЕН!
+    //Type 'CGSize' does not conform to protocol 'VectorArithmetic'
+    var animatableData: AnimatablePair<CGSize.AnimatableData, CGFloat> {
+        get { AnimatablePair(offset.animatableData, curvePoint) }
+        set {
+            offset.animatableData = newValue.first
+            curvePoint = newValue.second
+        }
     }
     
     func path(in rect: CGRect) -> Path {
@@ -38,7 +44,9 @@ struct LiquidShape: Shape {
         to = to < 180 ? 180 : to
         
         let mid: CGFloat = 80 + ((to - 80) / 2)
-        p.addCurve(to: CGPoint(x: rect.width, y: to), control1: CGPoint(x: width - 50, y: mid), control2: CGPoint(x: width - 50, y: mid))
+        p.addCurve(to: CGPoint(x: rect.width, y: to),
+                   control1: CGPoint(x: width - curvePoint, y: mid),
+                   control2: CGPoint(x: width - curvePoint, y: mid))
         
         return p
     }
