@@ -20,10 +20,25 @@ struct IntroView: View {
             ForEach(intro.intros.indices.reversed(), id: \.self) { index in
                 introView(intro: intro.intros[index])
                     .clipShape(LiquidShape(offset: intro.intros[index].offset,
-                                           curvePoint: currentIndex == index ? 50 : 0))
-                    .padding(.trailing, currentIndex == index ? 15 : 0)
+                                           curvePoint: fakeIndex == index ? 50 : 0))
+                    .padding(.trailing, fakeIndex == index ? 15 : 0)
                     .ignoresSafeArea()
             }
+            
+            HStack(spacing: 8 ) {
+                ForEach(0..<intro.intros.count) { index in
+                    Circle()
+                        .fill(.white)
+                        .frame(width: 8, height: 8)
+                        .scaleEffect(currentIndex == index ? 1.3 : 1)
+                        .opacity(currentIndex == index ? 1 : 0.6)
+                }
+                
+                Spacer()
+            }
+            .padding(.leading, 30)
+            .padding(.bottom)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         }
         //Стрелка для свайпа
         .overlay(
@@ -44,15 +59,37 @@ struct IntroView: View {
                             .onChanged { value in
                                 //обновляем offset
                                 withAnimation(.interactiveSpring(response: 0.7, dampingFraction: 0.6, blendDuration: 0.6)) {
-                                    intro.intros[currentIndex].offset = value.translation
+                                    intro.intros[fakeIndex].offset = value.translation
                                 }
                             }
                             .onEnded { value in
                                 withAnimation(.spring()) {
-                                    if -intro.intros[currentIndex].offset.width > getRect().width / 2 {
-                                        intro.intros[currentIndex].offset.width = -getRect().height * 1.5
+                                    if -intro.intros[fakeIndex].offset.width > getRect().width / 2 {
+                                        intro.intros[fakeIndex].offset.width = -getRect().height * 1.5
+                                        fakeIndex += 1
+                                        
+                                        //Обновление оригенального индекса
+                                        if currentIndex == intro.intros.count - 3 {
+                                            currentIndex = 0
+                                        } else {
+                                            currentIndex += 1
+                                        }
+                                        
+                                        //Когда fakeindex достигает предпоследнего элемента
+                                        //Снова переключаемся на первый елемент, чтобы создать ощущение бесконечной карусели
+                                        
+                                        //Не большая задержка для завершения анимации смахивания
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                            if fakeIndex == intro.intros.count - 2 {
+                                                for i in 0..<intro.intros.count - 2 {
+                                                    intro.intros[i].offset = .zero
+                                                }
+                                                fakeIndex = 0
+                                            }
+                                        }
+                                        
                                     } else {
-                                        intro.intros[currentIndex].offset = .zero
+                                        intro.intros[fakeIndex].offset = .zero
                                     }
                                 }
                             }
@@ -64,6 +101,19 @@ struct IntroView: View {
             
             ,alignment: .topTrailing
         )
+        .onAppear {
+            //Меняем последний элемент с первым
+            //и первый с последним, чтобы создать ощущение бесконечной карусели
+            guard let first = intro.intros.first else { return }
+            guard var last = intro.intros.last else { return }
+            
+            last.offset.width = -getRect().height * 1.5
+            
+            intro.intros.append(first)
+            intro.intros.insert(last, at: 0)
+            
+            fakeIndex = 1
+        }
     }
     
     @ViewBuilder
@@ -83,9 +133,8 @@ struct IntroView: View {
                 
                 Text(intro.description)
                     .font(.title3)
-                    .padding(.top)
                     .frame(width: getRect().width - 100, alignment: .leading)
-                    .lineLimit(2)
+                    .lineLimit(3)
             }
             .foregroundColor(.white)
             .frame(maxWidth: .infinity, alignment: .leading)
