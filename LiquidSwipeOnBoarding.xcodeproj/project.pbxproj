@@ -15,6 +15,7 @@
 		808647F22731E48F0049A122 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808647F12731E48F0049A122 /* IntroView.swift */; };
 		808647F52731E5F40049A122 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808647F42731E5F40049A122 /* Color.swift */; };
 		808647F72731F9D70049A122 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808647F62731F9D70049A122 /* View.swift */; };
+		808647FA2731FEA00049A122 /* LiquidShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808647F92731FEA00049A122 /* LiquidShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		808647F12731E48F0049A122 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		808647F42731E5F40049A122 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		808647F62731F9D70049A122 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		808647F92731FEA00049A122 /* LiquidShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				808647E92731C2120049A122 /* Model */,
 				808647EE2731E4440049A122 /* ViewModel */,
 				808647E82731C2090049A122 /* View */,
+				808647F82731FE790049A122 /* Shape */,
 				808647F32731E5E10049A122 /* Extension */,
 				808647DE2731B72F0049A122 /* Assets.xcassets */,
 				808647E02731B72F0049A122 /* Preview Content */,
@@ -109,6 +112,14 @@
 				808647F62731F9D70049A122 /* View.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		808647F82731FE790049A122 /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				808647F92731FEA00049A122 /* LiquidShape.swift */,
+			);
+			path = Shape;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +196,7 @@
 				808647F22731E48F0049A122 /* IntroView.swift in Sources */,
 				808647F72731F9D70049A122 /* View.swift in Sources */,
 				808647F02731E45F0049A122 /* IntroOO.swift in Sources */,
+				808647FA2731FEA00049A122 /* LiquidShape.swift in Sources */,
 				808647F52731E5F40049A122 /* Color.swift in Sources */,
 				808647ED2731E33F0049A122 /* Intro.swift in Sources */,
 			);
