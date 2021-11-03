@@ -16,6 +16,8 @@
 		808647F52731E5F40049A122 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808647F42731E5F40049A122 /* Color.swift */; };
 		808647F72731F9D70049A122 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808647F62731F9D70049A122 /* View.swift */; };
 		808647FA2731FEA00049A122 /* LiquidShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808647F92731FEA00049A122 /* LiquidShape.swift */; };
+		80DC3DD027323D4900B66FF6 /* IndicatorPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DC3DCF27323D4900B66FF6 /* IndicatorPage.swift */; };
+		80DC3DD227323E2900B66FF6 /* OnePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DC3DD127323E2900B66FF6 /* OnePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		808647F42731E5F40049A122 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		808647F62731F9D70049A122 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		808647F92731FEA00049A122 /* LiquidShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidShape.swift; sourceTree = "<group>"; };
+		80DC3DCF27323D4900B66FF6 /* IndicatorPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorPage.swift; sourceTree = "<group>"; };
+		80DC3DD127323E2900B66FF6 /* OnePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				808647F12731E48F0049A122 /* IntroView.swift */,
+				80DC3DCF27323D4900B66FF6 /* IndicatorPage.swift */,
+				80DC3DD127323E2900B66FF6 /* OnePage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,8 +198,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80DC3DD027323D4900B66FF6 /* IndicatorPage.swift in Sources */,
 				808647DB2731B72B0049A122 /* LiquidSwipeOnBoardingApp.swift in Sources */,
 				808647F22731E48F0049A122 /* IntroView.swift in Sources */,
+				80DC3DD227323E2900B66FF6 /* OnePage.swift in Sources */,
 				808647F72731F9D70049A122 /* View.swift in Sources */,
 				808647F02731E45F0049A122 /* IntroOO.swift in Sources */,
 				808647FA2731FEA00049A122 /* LiquidShape.swift in Sources */,
